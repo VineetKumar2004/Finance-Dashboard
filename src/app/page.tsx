@@ -34,6 +34,8 @@ const item: Variants = {
 import { DashboardSkeleton } from "@/components/ui/Skeleton";
 import { useState, useEffect } from "react";
 
+import { InsightsSection } from "@/components/dashboard/Insights";
+
 export default function Dashboard() {
   const { role } = useApp();
   const [isSyncing, setIsSyncing] = useState(true);
@@ -67,7 +69,10 @@ export default function Dashboard() {
         </div>
         <SummaryCards role={role} />
       </motion.section>
-      {/* ... rest of existing code */}
+
+      <motion.section variants={item}>
+        <InsightsSection />
+      </motion.section>
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
         <motion.div variants={item} className="lg:col-span-2">
